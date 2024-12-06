@@ -1,0 +1,50 @@
+# Node.js dependencies
+**/node_modules/
+
+# Environment files
+**/.env
+.env.*.local
+
+# Docker-specific files
+backend/docker-compose.override.yml
+*.env
+
+# Editor-specific files
+.vscode/
+
+# Build directories
+**/dist/
+**/build/
+
+# Cache directories
+**/.cache/
+.nyc_output/
+coverage/
+tmp/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.old
+
+# MongoDB data
+backend/data/
+
+# Ignore frontend build and config files
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.env
+frontend/.cache/
+
+# Ignore backend-specific build artifacts and configs
+backend/gateway/node_modules/
+backend/employee-service/node_modules/
+backend/leave-service/node_modules/
+backend/gateway/logs/
+backend/employee-service/logs/
+backend/leave-service/logs/
+backend/gateway/.env
+backend/employee-service/.env
+backend/leave-service/.env

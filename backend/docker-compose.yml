@@ -1,0 +1,63 @@
+services:
+  # Gateway Service
+  gateway:
+    build:
+      context: ./gateway
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - EMPLOYEE_SERVICE_URL=http://employee-service:5001
+      - LEAVE_SERVICE_URL=http://leave-service:5002
+    depends_on:
+      - employee-service
+      - leave-service
+    networks:
+      - app-network
+
+  # Employee Service
+  employee-service:
+    build:
+      context: ./employee-service
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/employeeDB
+      - PORT=5001
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  # Leave Service
+  leave-service:
+    build:
+      context: ./leave-service
+    ports:
+      - "5002:5002"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/leaveDB
+      - PORT=5002
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  # MongoDB Service
+  mongo:
+    image: mongo:latest
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb-data:
+    driver: local
