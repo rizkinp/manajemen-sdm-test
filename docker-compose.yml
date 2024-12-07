@@ -1,8 +1,20 @@
 services:
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - app-network
+    environment:
+      - VITE_API_BASE_URL=https://gateway-production-2fb3.up.railway.app/api
+
+  # Backend Service
   # Gateway Service
   gateway:
     build:
-      context: ./gateway
+      context: ./backend/gateway
     ports:
       - "5000:5000"
     environment:
@@ -19,7 +31,7 @@ services:
   # Employee Service
   employee-service:
     build:
-      context: ./employee-service
+      context: ./backend/employee-service
     ports:
       - "5001:5001"
     environment:
@@ -34,7 +46,7 @@ services:
   # Leave Service
   leave-service:
     build:
-      context: ./leave-service
+      context: ./backend/leave-service
     ports:
       - "5002:5002"
     environment:
