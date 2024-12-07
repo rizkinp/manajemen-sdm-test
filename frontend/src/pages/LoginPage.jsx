@@ -30,7 +30,7 @@ const LoginPage = () => {
       localStorage.setItem("user", JSON.stringify(user));
 
       toast.success("Login successful! Redirecting to dashboard...");
-      setTimeout(() => navigate("/dashboard"), 3000); // Redirect setelah 3 detik
+      setTimeout(() => navigate("/"), 3000);
     } catch (err) {
       if (err.message === "Invalid credentials") {
         toast.error("Invalid email or password.");

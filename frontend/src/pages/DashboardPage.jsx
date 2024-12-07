@@ -5,6 +5,7 @@ import Modal from "../components/ui/Modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getLeaveRequests } from "../api/leaveApi";
+import EmployeeList from "../components/dashboard/Employeelist"; 
 
 const DashboardPage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -38,14 +39,15 @@ const DashboardPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 px-4 sm:px-6 lg:px-8 py-6">
-      <div className="max-w-4xl mx-auto space-y-6">
-        <h1 className="text-4xl font-semibold text-gray-800">Dashboard</h1>
-        <h2>Hello, {JSON.parse(localStorage.getItem("user"))}</h2>
+    <div className="w-full flex flex-col bg-gray-100 px-6 py-4">
+      <div className="space-y-2">
+        <h1 className="text-4xl font-semibold text-gray-900">Dashboard</h1>
+        <h2 className="text-xl text-gray-700">Hello, {JSON.parse(localStorage.getItem("user"))}</h2>
+
         <div className="flex justify-start">
           <button
             onClick={openModal}
-            className="bg-blue-600 text-white py-3 px-6 rounded-md shadow-md hover:bg-blue-700 transition duration-300 w-full sm:w-auto"
+            className="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300"
           >
             Request Leave
           </button>
@@ -55,13 +57,23 @@ const DashboardPage = () => {
           <LeaveRequestForm closeModal={closeModal} onLeaveAdded={onLeaveAdded} />
         </Modal>
 
-        {loading ? (
-          <div className="flex justify-center items-center">
-            <span className="text-gray-600">Loading...</span>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Leave Requests Section */}
+          <div className="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg">
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <span className="text-gray-600">Loading...</span>
+              </div>
+            ) : (
+              <LeaveRequests leaves={leaves} error={error} />
+            )}
           </div>
-        ) : (
-          <LeaveRequests leaves={leaves} error={error} />
-        )}
+
+          {/* Employee List Section */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <EmployeeList />
+          </div>
+        </div>
 
         <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />
       </div>
