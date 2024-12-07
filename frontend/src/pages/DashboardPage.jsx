@@ -34,6 +34,13 @@ const DashboardPage = () => {
     toast.success("Leave request created successfully!");
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    toast.success("Logged out successfully!");
+    window.location.href = "/login";
+  };
+
   useEffect(() => {
     fetchLeaves();
   }, []);
@@ -77,6 +84,14 @@ const DashboardPage = () => {
 
         <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />
       </div>
+
+      {/* Logout Button */}
+      <button
+        onClick={handleLogout}
+        className="fixed bottom-6 right-6 bg-red-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-red-700 transition duration-300"
+      >
+        Logout
+      </button>
     </div>
   );
 };
