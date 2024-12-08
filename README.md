@@ -3,10 +3,9 @@
 Ini adalah aplikasi frontend untuk **Aplikasi Microservices Manajemen SDM Sederhana**. Dibangun menggunakan **React.js** untuk mengelola antarmuka pengguna.
 
 ## 📋 Fitur
-- **Autentikasi**: Login dan logout pengguna.
+- **Autentikasi**: Login, register dan logout pengguna.
 - **Dashboard**: Menampilkan informasi karyawan dan permohonan cuti.
-- **Manajemen Karyawan**: CRUD data karyawan.
-- **Manajemen Permohonan Cuti**: Membuat, mengelola, dan melihat status permohonan cuti.
+- **Manajemen Permohonan Cuti**: Membuat dan melihat status permohonan cuti.
 
 ## 🛠️ Teknologi yang Digunakan
 - React.js
@@ -43,7 +42,7 @@ Ini adalah aplikasi frontend untuk **Aplikasi Microservices Manajemen SDM Sederh
    
 -----------
 
-## **Backend 
+## Backend 
 Backend untuk **Aplikasi Microservices Manajemen SDM Sederhana** terdiri dari beberapa layanan microservices:
 1. **Gateway API**: Pintu masuk utama untuk semua request.
 2. **Employee Service**: Layanan untuk mengelola data karyawan.
@@ -52,7 +51,7 @@ Backend untuk **Aplikasi Microservices Manajemen SDM Sederhana** terdiri dari be
 ### 📋 Fitur
 - **Gateway API**: Mengarahkan request ke layanan microservices terkait.
 - **Employee Service**:
-  - Login, Register. dan lihat data karyawan dengan JWT
+  - Login, Register. dan lihat data karyawan dengan JWT.
 - **Leave Service**:
   - Buat permohonan cuti.
 
@@ -60,7 +59,7 @@ Backend untuk **Aplikasi Microservices Manajemen SDM Sederhana** terdiri dari be
 - **Node.js** dan **Express.js**
 - **MongoDB** dengan **Mongoose** untuk database
 - **Docker** dan **Docker Compose** Untuk containerization
-- dan beberapa libraru yang dibuuthkan
+- dan beberapa library yang dibutuhkan.
 
 ### ⚡ Cara Menjalankan Aplikasi
 1. Clone repositori:
