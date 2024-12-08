@@ -120,6 +120,7 @@ Backend untuk **Aplikasi Microservices Manajemen SDM Sederhana** terdiri dari be
      ```
 5. Dokementasi API
    ```bash
+   https://documenter.getpostman.com/view/30196710/2sAYBd6Smo
    ```
 6. 🚀 Deployment
 Aplikasi backend di-deploy menggunakan [Railway](https://railway.app/).
